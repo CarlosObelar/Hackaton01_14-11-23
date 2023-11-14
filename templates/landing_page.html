@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Landing Page {% endblock %}
+
+{% block contenido %}
+    <div class="min-h-screen flex flex-col">
+        <!-- Header (puedes colocar tu código de encabezado aquí) -->
+
+        <div class="flex-1 relative overflow-hidden">
+            <img class="absolute inset-0 w-full h-full object-cover opacity-60" src="/static/fondo.jpg" alt="Fondo">
+            <div class="absolute inset-0 flex flex-col justify-evenly items-center text-center text-white">
+                <h3 class="text-white text-8xl">Tu gestor de gastos favorito.</h3>
+                <h2 class="text-white text-2xl w-1/2">    Descubre una nueva forma de manejar tus finanzas con nuestro gestor de gastos. Registra cada transacción de manera fácil y segura, manteniendo un control total de tus ingresos y gastos. Con funciones intuitivas y acceso rápido, nuestra plataforma te brinda la herramienta perfecta para alcanzar tus metas financieras. ¡Comienza hoy mismo y toma el control de tu dinero con simplicidad y eficiencia!</h2>
+                <button class="mb-6 bg-fixed">
+                    <a class="text-white bg-gray-900 px-2 py-2 font-bold rounded-xl" href="/home">Comienza ahora!</a>
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer (puedes colocar tu código de pie de página aquí) -->
+    </div>
+{% endblock %}

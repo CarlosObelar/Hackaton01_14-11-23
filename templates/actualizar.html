@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block titulo %} Update {% endblock%}
+
+{% block contenido%}
+
+<div class="bg-gray-900 mx-auto w-auto h-96 py-10 flex flex-col justify-center justify-evenly items-center">
+    <h1 class="font-semibold leading-6 text-white text-6xl">Actualiza los datos del gasto</h1>
+
+    <form action="{{ url_for('actualizar', id=gasto.id) }}", method="post">
+
+        <div>
+            <input class="mr-6 rounded-md text-center" name="fecha" type="text" placeholder="Fecha del gasto" value="{{ gasto.fecha }}">
+            <input class="rounded-md text-center" name="concepto" type="text" placeholder="Concepto del gasto" value="{{ gasto.concepto }}">
+            <input class="ml-6 rounded-md text-center" name="monto" type="number" placeholder="Monto del gasto" value="{{ gasto.monto }}">
+        </div>
+        <div class="flex justify-evenly mt-10">
+            <button type="submit" class="block rounded-md bg-indigo-500 px-3 py-2 text-center text-sm font-semibold text-white hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                Actualizar gasto
+            </button>
+            <button class="block rounded-md bg-indigo-500 px-3 py-2 text-center text-sm font-semibold text-white hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                <a href="{{ url_for('home') }}">Cancelar</a>
+            </button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+    <h1>Registro de gastos personales</h1>
+
+    <!--Inicio del CRUD - Read-->
+    {% for gasto in gastos %}
+        <li>Fecha: {{ gasto.fecha }}</li>
+        <li>Concepto: {{ gasto.concepto }}</li>
+        <li>Monto: {{ gasto.monto }}</li>
+
+        <!--Inicio CRUD - Update-->
+        <button>
+            <a href="{{ url_for('actualizar', id=gasto.id) }}">Actualizar</a>
+        </button>
+        <!--Fin CRUD - Update-->
+
+        <!--Inicio CRUD - Delete-->
+        <button>
+            <a href="{{ url_for('eliminar', id=gasto.id) }}">Eliminar</a>
+        </button>
+        <!--Fin CRUD - Delete-->
+
+    {% endfor %}
+    <!--Fin del CRUD - Read-->
+
+    <!--Inicio del cuadro de "Total"-->
+    <li>Total: {{ total }}</li>
+    <!--Fin del cuadro de "Total"-->
+
+    <!--Inicio del CRUD - Create-->
+    <h2>Agregar un nuevo gasto</h2>
+    <form action = "{{ url_for('crear') }}", method="post">
+        <div>
+            <input name="fecha" type="text" placeholder="Fecha del gasto">
+            <input name="concepto" type="text" placeholder="Concepto del gasto">
+            <input name="monto" type="number" placeholder="Monto del gasto">
+        </div>
+        <div>
+            <button type="submit">
+                Agregar Gasto
+            </button>
+        </div>
+    </form>
+    <!--Fin del CRUD - Create-->
+    
+</body>
+</html>
